@@ -1,0 +1,13 @@
+/* Importamos Poppins desde Google Fonts (incluimos Regular 400, Medium 500 y Bold 700 para los títulos) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+/* Sobrescribimos las variables nativas de Bootstrap 5 para que use nuestra fuente en toda la app */
+:root {
+  --bs-font-sans-serif: 'Poppins', sans-serif;
+  --bs-body-font-family: 'Poppins', sans-serif;
+}
+
+/* Regla general de respaldo por si algún elemento no hereda correctamente */
+body, * {
+  font-family: 'Poppins', sans-serif;
+}
