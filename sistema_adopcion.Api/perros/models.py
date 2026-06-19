@@ -38,19 +38,15 @@ class Perro(models.Model):
     estado_adopcion = models.CharField(
         max_length=20,
         choices=ESTADO_ADOPCION_CHOICES,
-        default='1' # Corregido para que coincida con el valor de la tupla ('1')
+        default='1'
     )
     
-    # NUEVO CAMPO: Guarda el string de la URL de la imagen
     imagen = models.URLField(max_length=500, blank=True, null=True)
 
     def __str__(self):
         return f"{self.nombre} ({self.raza})"
 
 class Usuario(AbstractUser):
-    # AbstractUser ya incluye: username, password, first_name, last_name, email
-    
-    # Solo agregamos TUS campos extra:
     telefono = models.CharField(max_length=20)
     direccion = models.CharField(max_length=200)
     pref_raza = models.CharField(max_length=20, choices=RazaPerro.choices, default=RazaPerro.OTRO)
@@ -66,4 +62,13 @@ class Postulacion(models.Model):
 
     def __str__(self):
         return f"{self.usuario} - {self.perro}"
+    
+class MensajeContacto(models.Model):
+    nombre = models.CharField(max_length=100)
+    email = models.EmailField()
+    texto = models.TextField()
+    fecha_envio = models.DateTimeField(auto_now_add=True)
+    leido = models.BooleanField(default=False) # <-- NUEVO CAMPO
 
+    def __str__(self):
+        return f"Mensaje de {self.nombre} - {self.email}"

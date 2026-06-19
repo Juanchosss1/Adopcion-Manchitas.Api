@@ -91,18 +91,6 @@ const ListadoPerros = () => {
 
   return (
     <div className="listado-bg">
-      <Navbar bg="dark" variant="dark" expand="lg" className="shadow-sm">
-        <Container>
-          <Navbar.Brand>Adopción Manchitas</Navbar.Brand>
-          <Navbar.Toggle />
-          <Navbar.Collapse className="justify-content-end">
-            <Nav>
-              <Button variant="outline-light" onClick={handleLogout}>Cerrar Sesión</Button>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-
       <div className="container py-5">
         <Row className="mb-5 align-items-center">
           <Col>
@@ -136,7 +124,6 @@ const ListadoPerros = () => {
                     <path fill="#ffffff" fillOpacity="1" d="M0,192L48,197.3C96,203,192,213,288,192C384,171,480,117,576,90.7C672,64,768,64,864,85.3C960,107,1056,149,1152,186.7C1248,224,1344,256,1392,272L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
                   </svg>
                   
-                  {/* Ajustamos el padding inferior del body */}
                   <div className="card-body position-relative pb-3" style={{ paddingTop: '50px' }}>
                     <h5 className="card-title text-center fs-3">{perro.nombre}</h5>
                     <hr className="mx-4" />
@@ -148,7 +135,6 @@ const ListadoPerros = () => {
                       <p className="mb-0"><strong>Vacunado:</strong> {perro.vacunado ? 'Sí ✅' : 'No ❌'}</p>
                     </div>
 
-                    {/* NUEVO BOTÓN AQUÍ - Abajo, ancho completo y con texto */}
                     <div className="d-grid px-3">
                       <Button 
                         className="btn-adopcion-card" 
@@ -158,9 +144,6 @@ const ListadoPerros = () => {
                       </Button>
                     </div>
                   </div>
-
-                  {/* ELIMINADO: Ya no usamos el ícono flotante btn-adoptar-icon */}
-
                 </div>
               </Col>
             ))

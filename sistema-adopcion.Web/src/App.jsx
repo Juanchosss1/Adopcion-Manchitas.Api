@@ -1,20 +1,27 @@
 // src/App.jsx
-import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PantallaAuth from './components/PantallaAuth';
+import Layout from './components/Layout'; // Importamos la nueva plantilla
 import ListadoPerros from './components/ListadoPerros';
-import Login from './components/Login';
+import Nosotros from './components/Nosotros';
+import Contacto from './components/Contacto';
+import PanelAdmin from './components/PanelAdmin';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="bg-light min-vh-100">
-        <Routes>
-          <Route path="/" element={<PantallaAuth />} />
+      <Routes>
+        {/* 1. Ruta PÚBLICA (Fuera del Layout, sin Navbar) */}
+        <Route path="/" element={<PantallaAuth />} />
+
+        {/* 2. Rutas INTERNAS (Envueltas en el Layout para que tengan Navbar) */}
+        <Route element={<Layout />}>
           <Route path="/perros" element={<ListadoPerros />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </div>
+          <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/admin-panel" element={<PanelAdmin />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }

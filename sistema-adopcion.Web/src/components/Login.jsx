@@ -79,11 +79,9 @@ const Login = ({ cambiarVista }) => {
       </div>
 
       <div style={{ width: '100%', textAlign: 'center', paddingTop: '27px', paddingBottom: '100px' }}>
-         {/* Espaciador central */}
       </div>
 
       <div style={{ width: '100%', textAlign: 'center' }}>
-        {/* Cambiamos el <a> por un <button> que llama a la función del padre */}
         <button type="button" className="txt3" onClick={cambiarVista}>
           Registrarse
         </button>
